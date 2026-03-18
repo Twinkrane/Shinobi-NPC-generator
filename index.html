@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Шиноби - генератор нпс</title>
+    <title>Шиноби — генератор нпс</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,34 +16,35 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 16px;
+            padding: 8px;
+            overflow: hidden;
         }
         .sheet {
-            max-width: 750px;
+            max-width: 900px;
             width: 100%;
             background: white;
             border: 3px solid black;
-            padding: 30px 28px;
+            padding: 20px 25px;
             box-shadow: 8px 8px 0 rgba(0,0,0,0.15);
-            max-height: 95vh;
+            height: 98vh;
             display: flex;
             flex-direction: column;
         }
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             text-transform: uppercase;
             border-bottom: 3px solid black;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
             letter-spacing: 2px;
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             flex-shrink: 0;
         }
-
+        /* Увеличиваем высоту до 80vh */
         #characterSheet {
-            height: 70vh;
+            height: 95vh;
             overflow-y: auto;
             padding-right: 8px;
         }
@@ -51,17 +52,17 @@
             display: flex;
             align-items: baseline;
             border-bottom: 1px dashed #333;
-            padding: 12px 0;
+            padding: 10px 0;
         }
         .field-row .label {
-            width: 170px;
+            width: 200px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
         }
         .field-row .value {
             flex: 1;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 500;
             text-align: right;
             word-break: break-word;
@@ -69,7 +70,7 @@
         .section-title {
             font-size: 1.3rem;
             font-weight: 700;
-            margin: 30px 0 15px 0;
+            margin: 20px 0 10px 0;
             border-left: 8px solid black;
             padding-left: 15px;
             text-transform: uppercase;
@@ -78,38 +79,134 @@
         .grid-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px 18px;
-            margin: 15px 0 10px;
+            gap: 8px 12px; /* немного уменьшили */
+            margin: 8px 0 8px;
         }
         .grid-item {
             background: #f0f0f0;
             border: 2px solid black;
-            padding: 6px 20px;
-            font-size: 1.1rem;
+            padding: 6px 16px; /* уменьшили */
+            font-size: 0.9rem; /* было 1.2rem */
             font-weight: 500;
             text-transform: uppercase;
         }
+
+        /* Чекбоксы */
+        .checkbox-round, .checkbox-death {
+            width: 2em;
+            height: 2em;
+            background-color: white;
+            border-radius: 50%;
+            vertical-align: middle;
+            border: 2px solid black;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            margin: 0 3px;
+        }
+        .checkbox-round:checked {
+            background-color: black;
+        }
+        .checkbox-death:checked {
+            background-color: red;
+            border-color: black;
+        }
+        .checkboxes {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin: 12px 0 5px;
+        }
+        .divider {
+            margin: 0 10px;
+            border-left: 2px solid black;
+            height: 2.2em;
+        }
+        .labels-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .label-stun {
+            text-align: left;
+            margin-left: 5px;
+        }
+        .label-wound {
+            margin-left: 65px;
+            text-align: left;
+        }
+        .label-dying {
+            margin-left: 100px;
+            text-align: left;
+        }
+        .label-dead {
+            margin-left: 50px;
+            text-align: left;
+        }
+
+        .stuns {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0 15px;
+        }
+        .stuns span {
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-right: 15px;
+        }
+        .progress-bar {
+            width: 85px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
         button {
             background: black;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            padding: 18px 30px;
+            padding: 15px 20px;
             width: 100%;
             text-transform: uppercase;
             letter-spacing: 4px;
             cursor: pointer;
             border: 2px solid black;
-            margin-top: 20px;
+            margin-top: 15px;
             font-family: 'Montserrat', sans-serif;
             transition: 0.1s;
             flex-shrink: 0;
         }
         button:hover { background: #333; }
         button:active { transform: translate(2px, 2px); }
-        @media (max-width: 550px) {
-            .field-row { flex-direction: column; align-items: flex-start; }
-            .field-row .value { text-align: left; margin-top: 5px; }
+
+        /* Адаптация для маленьких экранов */
+        @media (max-height: 800px) {
+            h1 { font-size: 2rem; }
+            .field-row .label { font-size: 1.1rem; width: 170px; }
+            .field-row .value { font-size: 1.2rem; }
+            .section-title { font-size: 1.4rem; }
+            .grid-item { font-size: 1rem; padding: 5px 12px; }
+            .checkbox-round, .checkbox-death { width: 1.6em; height: 1.6em; }
+            .labels-row { font-size: 1rem; }
+            .label-wound { margin-left: 50px; }
+            .label-dying { margin-left: 80px; }
+            .label-dead { margin-left: 40px; }
+            .stuns span { font-size: 1.1rem; }
+            button { font-size: 1.5rem; padding: 12px 15px; }
         }
     </style>
 </head>
@@ -119,12 +216,13 @@
         <div id="characterSheet"></div>
         <button id="generateBtn">СОЗДАТЬ</button>
     </div>
+
     <script>
-        
+        // ---------- Имена ----------
         const maleNames = [ "Акайо","Акио","Джуничи","Исао","Ичиро","Исаму","Ивао","Йоши","Йошикэзу","Йошито","Кацу","Кента","Кио","Кэйташи","Макато","Мамору","Минору","Мэзэто","Мэдока","Масуми","Мэнэбу","Набору","Нобуо","Рю","Сэтоши","Такаши","Тадаши","Тошайо","Такеши","Тэдзо","Тецуо","Хитоши","Эиджи","Ючи","Ясуши","Ясуо" ];
         const femaleNames = [ "Айамэ","Акеми","Аматэрасу","Асами","Джанко","Изуми","Казуко","Кайо","Каору","Касуми","Кийоко","Кими","Мадока","Майко","Манами","Мизуки","Натсуми","Ран","Рейко","Рэн","Фумико","Ханако","Харуки","Харуми","Хидэко","Хината","Хисако","Хоси","Хотару","Чико","Эмико","Эцуко","Юки","Юко","Юмико","Юрико" ];
 
-     
+        // ---------- Концепты ----------
         const concepts = [
             { name:"Ассасин", skill:"Лёгкое оружие", gear:"Любое лёгкое оружие" },
             { name:"Буракумин", skill:"Будзюцу", gear:"Холодное оружие на выбор" },
@@ -146,10 +244,10 @@
             { name:"Якудза", skill:"Якудза", gear:"Любое лёгкое оружие" }
         ];
 
-      
+        // ---------- Навыки ----------
         const skillsList = [ "Айкидо","Будзюцу","Взрывчатка","Чанбара","Иайдо","Карате","Некоде","Лёгкое оружие","Прицеливание","Тяжёлое оружие","Ловкость","Внимательность","Скрытность","Сила","Воля","Городское выживание","Эксперт в химии","Технологии","Контрбезопасность","Киберпространство","Медицина","Вождение","Язык тела","Обман","Подделка документов","Азартные игры","Соблазнение","Убеждение","Якудза","Дзайбацу" ];
 
-      
+        // ---------- Аугментации (плоские списки) ----------
         const augsClassA = [ "Трансформация (A)", "Подкожная броня (A)" ];
         const augsClassB = [ "Мышечная матрица (B)", "Ускоритель обмена веществ (B)", "Регенерация (B)" ];
         const augsClassC = [
@@ -165,44 +263,18 @@
             "Быстрый сон (D)", "Понимание животных (D)", "Внутреннее ухо (D)"
         ];
 
-        
-        function getAugmentationsByRoll() {
-            const roll = Math.floor(Math.random() * 6) + 1;
-            let result = [];
-            switch (roll) {
-                case 1:
-                    result = getUniqueRandom(augsClassA, 1);
-                    break;
-                case 2:
-                    result = [
-                        ...getUniqueRandom(augsClassB, 1),
-                        ...getUniqueRandom(augsClassD, 1)
-                    ];
-                    break;
-                case 3:
-                    result = getUniqueRandom(augsClassC, 2);
-                    break;
-                case 4:
-                    result = [
-                        ...getUniqueRandom(augsClassC, 1),
-                        ...getUniqueRandom(augsClassD, 2)
-                    ];
-                    break;
-                case 5:
-                case 6:
-                    result = getUniqueRandom(augsClassD, 4);
-                    break;
-            }
-            return result;
+        function randFrom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+        function getUniqueRandom(arr, count) {
+            if (count <= 0) return [];
+            if (count >= arr.length) return [...arr];
+            const shuffled = [...arr].sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
         }
-
-     
         function getStartCash() {
             const r = Math.floor(Math.random()*6)+1;
             return r <= 2 ? "¥20.000" : r <= 4 ? "¥30.000" : "¥40.000";
         }
 
-      
         function resolveConcept(concept) {
             if (concept.name === "Коммандо") {
                 const r = Math.floor(Math.random()*6)+1;
@@ -211,17 +283,19 @@
             return { skill: concept.skill, gear: concept.gear };
         }
 
-        function randFrom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-
-       
-        function getUniqueRandom(arr, count) {
-            if (count <= 0) return [];
-            if (count >= arr.length) return [...arr];
-            const shuffled = [...arr].sort(() => Math.random() - 0.5);
-            return shuffled.slice(0, count);
+        function getAugmentationsByRoll() {
+            const roll = Math.floor(Math.random() * 6) + 1;
+            switch (roll) {
+                case 1: return getUniqueRandom(augsClassA, 1);
+                case 2: return [...getUniqueRandom(augsClassB, 1), ...getUniqueRandom(augsClassD, 1)];
+                case 3: return getUniqueRandom(augsClassC, 2);
+                case 4: return [...getUniqueRandom(augsClassC, 1), ...getUniqueRandom(augsClassD, 2)];
+                case 5:
+                case 6: return getUniqueRandom(augsClassD, 4);
+                default: return [];
+            }
         }
 
-      
         function generateCharacter() {
             const gender = Math.random() < 0.5 ? 'male' : 'female';
             const name = gender === 'male' ? randFrom(maleNames) : randFrom(femaleNames);
@@ -231,16 +305,70 @@
             const augs = getAugmentationsByRoll();
             const cash = getStartCash();
 
+            // ---- Блок урона (14 чекбоксов с разделителями) ----
+            const damageChecks = `
+                <div class="checkboxes">
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <span class="divider"></span>
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <span class="divider"></span>
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <span class="divider"></span>
+                    <input type="checkbox" class="checkbox-death" />
+                </div>
+                <div class="labels-row">
+                    <span class="label-stun">Оглушен</span>
+                    <span class="label-wound">Ранен</span>
+                    <span class="label-dying">При смерти</span>
+                    <span class="label-dead">Мертв</span>
+                </div>
+            `;
+
+            // ---- Блок оглушений (5 + 2) ----
+            const stunChecks = `
+                <div class="stuns">
+                    <span>Текущие оглушения:</span>
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <input type="checkbox" class="checkbox-round" />
+                    <div class="progress-bar">
+                        <input type="checkbox" class="checkbox-round" />
+                        <input type="checkbox" class="checkbox-round" />
+                    </div>
+                </div>
+            `;
+
+            // Объединяем концепт и навык
+            const conceptDisplay = `${concept.name} (${skill})`;
+
             return `
                 <div class="field-row"><span class="label">Имя</span><span class="value">${name}</span></div>
-                <div class="field-row"><span class="label">Концепт</span><span class="value">${concept.name}</span></div>
-                <div class="field-row"><span class="label">Навык концепта</span><span class="value">${skill}</span></div>
-                <div class="field-row"><span class="label">Стартовое снаряжение</span><span class="value">${gear}</span></div>
-                <div class="section-title">НАВЫКИ</div>
-                <div class="grid-list">${extraSkills.map(s => `<span class="grid-item">${s}</span>`).join('')}</div>
-                <div class="section-title">АУГМЕНТАЦИИ</div>
-                <div class="grid-list">${augs.length ? augs.map(a => `<span class="grid-item">${a}</span>`).join('') : '<span class="grid-item">—</span>'}</div>
+                <div class="field-row"><span class="label">Концепт</span><span class="value">${conceptDisplay}</span></div>
+                <div class="field-row"><span class="label">Снаряжение</span><span class="value">${gear}</span></div>
+                <div class="section-title">Навыки</div>
+                <div class="grid-list">
+                    ${extraSkills.map(s => `<span class="grid-item">${s}</span>`).join('')}
+                </div>
+                <div class="section-title">Аугментации</div>
+                <div class="grid-list">
+                    ${augs.length ? augs.map(a => `<span class="grid-item">${a}</span>`).join('') : '<span class="grid-item">—</span>'}
+                </div>
                 <div class="field-row" style="margin-top:20px;"><span class="label">Стартовый капитал</span><span class="value">${cash}</span></div>
+                <div style="margin-top:20px;"><strong>Текущий урон:</strong></div>
+                ${damageChecks}
+                ${stunChecks}
             `;
         }
 
